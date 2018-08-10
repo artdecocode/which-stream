@@ -1,21 +1,20 @@
 import { equal, ok } from 'zoroaster/assert'
+import Catchment from 'catchment'
 import Context from '../context'
 import whichStream from '../../src'
 
 /** @type {Object.<string, (c: Context)>} */
 const T = {
   context: Context,
-  'is a function'() {
-    equal(typeof whichStream, 'function')
-  },
-  async 'calls package without error'() {
-    await whichStream()
-  },
-  async 'gets a link to the fixture'({ FIXTURE }) {
-    const res = await whichStream({
-      type: FIXTURE,
+  async 'reads a source'({ FIXTURE: source, readFixture }) {
+    const expected = await readFixture()
+    const writable = new Catchment()
+    await whichStream({
+      source,
+      writable,
     })
-    ok(res, FIXTURE)
+    const res = await writable.promise
+    equal(res, expected)
   },
 }
 

@@ -1,5 +1,7 @@
 import { resolve } from 'path'
 import { debuglog } from 'util'
+import Catchment from 'catchment'
+import { createReadStream } from 'fs'
 
 const LOG = debuglog('which-stream')
 
@@ -9,15 +11,6 @@ const FIXTURE = resolve(__dirname, '../fixture')
  * A testing context for the package.
  */
 export default class Context {
-  async _init() {
-    LOG('init context')
-  }
-  /**
-   * Example method.
-   */
-  example() {
-    return 'OK'
-  }
   /**
    * Path to the fixture file.
    */
@@ -27,7 +20,12 @@ export default class Context {
   get SNAPSHOT_DIR() {
     return resolve(__dirname, '../snapshot')
   }
-  async _destroy() {
-    LOG('destroy context')
+  async readFixture() {
+    const rs = createReadStream(this.FIXTURE)
+    const { promise } = new Catchment({
+      rs,
+    })
+    const res = await promise
+    return res
   }
 }
