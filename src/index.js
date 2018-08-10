@@ -3,15 +3,8 @@ import {
   createWriteStream,
   createReadStream,
   ReadStream,
-  WriteStream,
 } from 'fs'
 import { Writable } from 'stream'
-
-const createWritable = (destination) => {
-  if (destination == '-') return process.stdout
-  const ws = createWriteStream(destination)
-  return ws
-}
 
 /**
  * Handles the flow of streams, and awaits for them to complete. The input can be specified either as a string with the `source`, or as as stream with `readable`. The output can also be given either as a string with the `destination`, or as a stream with the `writable`. If destination is passed as the `-`, the output becomes `process.stdout`.
@@ -34,12 +27,12 @@ async function whichStream(config) {
     throw new Error('Please give either a destination or writable.')
 
   if (source) readable = createReadStream(source)
-  if (destination) writable = createWritable(destination)
+  // if (destination) writable = createWritable(destination)
 
   if (destination == '-') {
     readable.pipe(writable)
-  } else if (writable instanceof WriteStream) {
-    await handleWriteStream(writable, readable)
+  } else if (destination) {
+    await handleWriteStream(destination, readable)
   } else if (writable instanceof Writable) {
     readable.pipe(writable)
     await new Promise((r, j) => {
@@ -49,18 +42,21 @@ async function whichStream(config) {
   }
 }
 
-const handleWriteStream = async (writable, readable) => {
-  if (readable instanceof ReadStream && readable.path == writable.path) {
+const handleWriteStream = async (destination, readable) => {
+  if (readable instanceof ReadStream && readable.path == destination) {
     const { promise } = new Catchment({ rs: readable })
     const res = await promise
     await new Promise((r, j) => {
+      // must create writable after reading
+      const writable = createWriteStream(destination)
       writable
         .once('error', j)
         .end(res, r)
     })
   } else {
-    readable.pipe(writable)
     await new Promise((r, j) => {
+      const writable = createWriteStream(destination)
+      readable.pipe(writable)
       writable
         .once('error', j)
         .on('close', r)

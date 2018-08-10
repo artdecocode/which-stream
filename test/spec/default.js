@@ -1,19 +1,74 @@
-import { equal, ok } from 'zoroaster/assert'
-import Catchment from 'catchment'
+import { equal } from 'zoroaster/assert'
 import Context from '../context'
 import whichStream from '../../src'
 
 /** @type {Object.<string, (c: Context)>} */
 const T = {
   context: Context,
-  async 'reads a source'({ FIXTURE: source, readFixture }) {
-    const expected = await readFixture()
-    const writable = new Catchment()
+  async 'source -> writable'(
+    { source, expected, writable }
+  ) {
     await whichStream({
       source,
       writable,
     })
+
     const res = await writable.promise
+    equal(res, expected)
+  },
+  async 'source -> destination'({
+    source, destination, expected, readTemp,
+  }) {
+    await whichStream({
+      source,
+      destination,
+    })
+
+    const temp = await readTemp()
+    equal(temp, expected)
+  },
+  async 'source -> destination (same path)'({
+    sameSource: destination, sameSource: source, readSameTemp, expected,
+  }) {
+    await whichStream({
+      source,
+      destination,
+    })
+
+    const res = await readSameTemp()
+    equal(res, expected)
+  },
+  async 'readable -> writable'({
+    expected, writable, readable,
+  }) {
+    await whichStream({
+      readable,
+      writable,
+    })
+
+    const res = await writable.promise
+    equal(res, expected)
+  },
+  async 'readable -> destination'({
+    expected, readTemp, destination, readable,
+  }) {
+    await whichStream({
+      readable,
+      destination,
+    })
+
+    const res = await readTemp()
+    equal(res, expected)
+  },
+  async 'readable -> destination (same path)'({
+    sameReadable: readable, sameSource: destination, readSameTemp, expected,
+  }) {
+    await whichStream({
+      readable,
+      destination,
+    })
+
+    const res = await readSameTemp()
     equal(res, expected)
   },
 }
