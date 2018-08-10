@@ -11,7 +11,7 @@ import { Writable } from 'stream'
  * @param {Config} config Configuration object. Includes `source`, `readable`, `destination` and `writable` properties.
  * @param {string} [config.source] The path to a source file from which to read data.
  * @param {Readable} [config.readable] An optional input stream, if the `source` is not given.
- * @param {string} [config.destination] The path to the output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file.
+ * @param {string} [config.destination] The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file.
  * @param {Writable} [config.writable] A stream into which to pipe the input stream, if `destination` is not given.
  */
 async function whichStream(config) {
@@ -71,7 +71,7 @@ const handleWriteStream = async (destination, readable) => {
  * @typedef {Object} Config Configuration object. Includes `source`, `readable`, `destination` and `writable` properties.
  * @prop {string} [source] The path to a source file from which to read data.
  * @prop {Readable} [readable] An optional input stream, if the `source` is not given.
- * @prop {string} [destination] The path to the output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file.
+ * @prop {string} [destination] The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file.
  * @prop {Writable} [writable] A stream into which to pipe the input stream, if `destination` is not given.
  */
 
