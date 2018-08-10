@@ -25,7 +25,23 @@
     "url": "git://github.com/artdecocode/which-stream.git"
   },
   "keywords": [
-    "which-stream"
+    "which-stream",
+    "stream",
+    "stdout",
+    "stderr",
+    "source",
+    "destination",
+    "io",
+    "input",
+    "output",
+    "Writable",
+    "Readable",
+    "ReadStream",
+    "WriteStream",
+    "fs",
+    "filesystem",
+    "file",
+    "-"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
@@ -38,5 +54,8 @@
     "eslint-config-artdeco": "1.0.1",
     "yarn-s": "1.1.0",
     "zoroaster": "2.1.0"
+  },
+  "dependencies": {
+    "catchment": "3.0.0"
   }
 }
