@@ -1,4 +1,4 @@
-const Catchment = require('catchment')
+let Catchment = require('catchment'); if (Catchment && Catchment.__esModule) Catchment = Catchment.default;
 const {
   createWriteStream,
   createReadStream,
@@ -27,7 +27,6 @@ async function whichStream(config) {
     throw new Error('Please give either a destination or writable.')
 
   if (source) readable = createReadStream(source)
-  // if (destination) writable = createWritable(destination)
 
   if (destination == '-') {
     readable.pipe(writable)

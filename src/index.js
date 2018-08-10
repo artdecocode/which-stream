@@ -27,7 +27,6 @@ async function whichStream(config) {
     throw new Error('Please give either a destination or writable.')
 
   if (source) readable = createReadStream(source)
-  // if (destination) writable = createWritable(destination)
 
   if (destination == '-') {
     readable.pipe(writable)
