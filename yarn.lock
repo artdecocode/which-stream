@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@wrote/ensure-path@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@wrote/ensure-path/-/ensure-path-1.0.2.tgz#a98809dab5f957333183b2549e93725176b5202d"
+  dependencies:
+    makepromise "2.0.0"
+
 "@wrote/read-dir-structure@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@wrote/read-dir-structure/-/read-dir-structure-1.0.0.tgz#11b827934b493b2f730a32a91551eadacd41b936"
