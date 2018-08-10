@@ -38,16 +38,25 @@ __<a name="config">`Config`</a>__: Configuration object. Includes `source`, `rea
 | ---- | ---- | ----------- | ------- |
 | source | _string_ | The path to a source file from which to read data. | - |
 | readable | [_Readable_](#readable) | An optional input stream, if the `source` is not given. | - |
-| destination | _string_ | The path to the output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. | - |
+| destination | _string_ | The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. | - |
 | writable | [_Writable_](#writable) | A stream into which to pipe the input stream, if `destination` is not given. | - |
 
 ```js
-/* yarn example */
+/* yarn example/ */
 import whichStream from 'which-stream'
+import { createReadStream } from 'fs'
 
 (async () => {
-  await whichStream()
+  const readable = createReadStream('test/fixture/test.txt')
+  await whichStream({
+    readable,
+    destination: '-',
+  })
 })()
+```
+
+```
+a test file
 ```
 
 ## Copyright

@@ -10,3 +10,5 @@ The `whichStream` function will determine which streams to use by creating reada
 %TYPEDEF types/index.xml%
 
 %EXAMPLE: example/example.js, ../src => which-stream%
+
+%FORK example example/example%
