@@ -22,6 +22,7 @@ yarn add -E which-stream
   * [Readable to Destination (Overwriting)](#readable-to-destination-overwriting)
   * [Readable to Writable](#readable-to-writable)
   * [Readable to Stdout](#readable-to-stdout)
+- [TODO](#todo)
 - [Copyright](#copyright)
 
 ## API
@@ -287,6 +288,11 @@ cover and cook in 3 to 5 minutes increments.
 place in a bowl, add a few tablespoons of water,
 cover and cook in 3 to 5 minutes increments.
 ```
+
+## TODO
+
+- [ ] Read a directory as a source.
+- [ ] Allow to pipe to `stderr`.
 
 ## Copyright
 
