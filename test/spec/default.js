@@ -1,4 +1,5 @@
 import { equal } from 'zoroaster/assert'
+import { PassThrough } from 'stream'
 import Context from '../context'
 import whichStream from '../../src'
 
@@ -64,6 +65,20 @@ const T = {
     sameReadable: readable, sameSource: destination, readSameTemp, expected,
   }) {
     await whichStream({
+      readable,
+      destination,
+    })
+
+    const res = await readSameTemp()
+    equal(res, expected)
+  },
+  async 'proxy source -> destination (same path)'({
+    sameReadable, sameSource: source, sameSource: destination, readSameTemp, expected,
+  }){
+    const readable = new PassThrough()
+    sameReadable.pipe(readable)
+    await whichStream({
+      source,
       readable,
       destination,
     })

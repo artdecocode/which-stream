@@ -26,12 +26,12 @@ async function whichStream(config) {
   if (!(destination || writable))
     throw new Error('Please give either a destination or writable.')
 
-  if (source) readable = createReadStream(source)
+  if (source && !readable) readable = createReadStream(source)
 
   if (destination == '-') {
-    readable.pipe(writable)
+    readable.pipe(process.stdout)
   } else if (destination) {
-    await handleWriteStream(destination, readable)
+    await handleWriteStream(destination, readable, source)
   } else if (writable instanceof Writable) {
     readable.pipe(writable)
     await new Promise((r, j) => {
@@ -41,8 +41,8 @@ async function whichStream(config) {
   }
 }
 
-const handleWriteStream = async (destination, readable) => {
-  if (readable instanceof ReadStream && readable.path == destination) {
+const handleWriteStream = async (destination, readable, source) => {
+  if (readable.path == destination || source == destination) {
     const { promise } = new Catchment({ rs: readable })
     const res = await promise
     await new Promise((r, j) => {
