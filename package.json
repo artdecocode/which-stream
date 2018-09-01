@@ -21,8 +21,7 @@
     "example/readable-writable.js": "yarn e example/readable-writable.js",
     "example/readable-stdout.js": "yarn e example/readable-stdout.js",
     "build": "yarn-s b doc",
-    "b": "alamode src -o build",
-    "postpublish": "git push --follow-tags"
+    "b": "alamode src -o build"
   },
   "files": [
     "build"
