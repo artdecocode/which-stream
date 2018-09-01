@@ -2,8 +2,8 @@ let Catchment = require('catchment'); if (Catchment && Catchment.__esModule) Cat
 const {
   createWriteStream,
   createReadStream,
-} = require('fs')
-const { Writable } = require('stream')
+} = require('fs');
+const { Writable } = require('stream');
 
 /**
  * Handles the flow of streams, and awaits for them to complete. The input can be specified either as a string with the `source` property, or as as stream with the `readable`. The output can also be given either as a string with the `destination`, or as a stream with the `writable`. If destination is passed as the `-`, the output becomes `process.stdout`.
@@ -74,4 +74,5 @@ const handleWriteStream = async (destination, readable, source) => {
  * @prop {Writable} [writable] A stream into which to pipe the input stream, if `destination` is not given.
  */
 
-module.exports = whichStream
+module.exports=whichStream
+//# sourceMappingURL=index.js.map
