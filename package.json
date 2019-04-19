@@ -14,6 +14,9 @@
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
     "e": "node example",
+    "d1": "typal src -c",
+    "externs": "typal externs.js -e",
+    "d": "yarn-s d1 externs",
     "example/source-destination.js": "yarn e example/source-destination.js",
     "example/source-writable.js": "yarn e example/source-writable.js",
     "example/source-stdout.js": "yarn e example/source-stdout.js",
@@ -26,8 +29,10 @@
   },
   "files": [
     "build",
-    "src"
+    "src",
+    "externs.js"
   ],
+  "externs": "externs.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/artdecocode/which-stream.git"

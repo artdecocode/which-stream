@@ -6,4 +6,6 @@ The package is available by importing its default function:
 import whichStream from 'which-stream'
 ```
 
+<Externs namespace="_whichStream"/>
+
 %~%

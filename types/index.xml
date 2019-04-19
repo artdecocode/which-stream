@@ -1,17 +1,17 @@
-<types>
+<types namespace="_whichStream">
   <import name="Readable" from="stream" />
   <import name="Writable" from="stream" />
-  <type name="Config" desc="Configuration object. Includes `source`, `readable`, `destination` and `writable` properties.">
+  <type name="Config" desc="The configuration object.">
     <prop opt type="string" name="source">
       The path to a source file from which to read data.
     </prop>
-    <prop opt type="Readable" name="readable">
+    <prop opt type="!stream.Readable" name="readable">
       An optional input stream, if the `source` is not given.
     </prop>
     <prop opt type="string" name="destination">
       The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. Moreover, when used with the `readable` specified to overwrite the file from which data is originally read from, the `source` should also be passed.
     </prop>
-    <prop opt type="Writable" name="writable">
+    <prop opt type="!stream.Writable" name="writable">
       A stream into which to pipe the input stream, if `destination` is not given.
     </prop>
   </type>

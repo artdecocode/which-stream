@@ -15,7 +15,7 @@ yarn add which-stream
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
 - [`async whichStream(config: Config)`](#async-whichstreamconfig-config-void)
-  * [`Config`](#type-config)
+  * [`_whichStream.Config`](#type-_whichstreamconfig)
 - [Use Cases](#use-cases)
   * [Source to Destination](#source-to-destination)
   * [Source to Writable](#source-to-writable)
@@ -36,6 +36,8 @@ The package is available by importing its default function:
 import whichStream from 'which-stream'
 ```
 
+The types and [externs](externs.js) for _Google Closure Compiler_ via [**_Depack_**](https://github.com/dpck/depack) are defined in the `_whichStream` namespace.
+
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
 
 ## `async whichStream(`<br/>&nbsp;&nbsp;`config: Config,`<br/>`): void`
@@ -46,14 +48,14 @@ The `whichStream` function will determine which streams to use by creating reada
 
 `import('stream').Writable` __<a name="type-streamwritable">`stream.Writable`</a>__
 
-__<a name="type-config">`Config`</a>__: Configuration object. Includes `source`, `readable`, `destination` and `writable` properties.
+__<a name="type-_whichstreamconfig">`_whichStream.Config`</a>__: The configuration object.
 
-|    Name     |    Type    |                                                                                                                                                                                        Description                                                                                                                                                                                        |
-| ----------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| source      | _string_   | The path to a source file from which to read data.                                                                                                                                                                                                                                                                                                                                        |
-| readable    | _Readable_ | An optional input stream, if the `source` is not given.                                                                                                                                                                                                                                                                                                                                   |
-| destination | _string_   | The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. Moreover, when used with the `readable` specified to overwrite the file from which data is originally read from, the `source` should also be passed. |
-| writable    | _Writable_ | A stream into which to pipe the input stream, if `destination` is not given.                                                                                                                                                                                                                                                                                                              |
+|    Name     |                    Type                    |                                                                                                                                                                                        Description                                                                                                                                                                                        |
+| ----------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| source      | _string_                                   | The path to a source file from which to read data.                                                                                                                                                                                                                                                                                                                                        |
+| readable    | _[!stream.Readable](#type-streamreadable)_ | An optional input stream, if the `source` is not given.                                                                                                                                                                                                                                                                                                                                   |
+| destination | _string_                                   | The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. Moreover, when used with the `readable` specified to overwrite the file from which data is originally read from, the `source` should also be passed. |
+| writable    | _[!stream.Writable](#type-streamwritable)_ | A stream into which to pipe the input stream, if `destination` is not given.                                                                                                                                                                                                                                                                                                              |
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
 
