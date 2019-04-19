@@ -2,18 +2,20 @@
 
 [![npm version](https://badge.fury.io/js/which-stream.svg)](https://npmjs.org/package/which-stream)
 
-`which-stream` is a small Node.js library to pipe an input stream to an output one. It can create filesystem's read and write streams, or use provided ones, as well as piping output to the `stdout`.
+`which-stream` is a small Node.JS library to pipe an input stream to an output one. It can create filesystem's read and write streams, or use provided ones, as well as piping output to the `stdout`.
 
 ```sh
-yarn add -E which-stream
+yarn add which-stream
 ```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
 
 ## Table Of Contents
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
 - [`async whichStream(config: Config)`](#async-whichstreamconfig-config-void)
-  * [`Config`](#config)
+  * [`Config`](#type-config)
 - [Use Cases](#use-cases)
   * [Source to Destination](#source-to-destination)
   * [Source to Writable](#source-to-writable)
@@ -22,8 +24,9 @@ yarn add -E which-stream
   * [Readable to Destination (Overwriting)](#readable-to-destination-overwriting)
   * [Readable to Writable](#readable-to-writable)
   * [Readable to Stdout](#readable-to-stdout)
-- [TODO](#todo)
 - [Copyright](#copyright)
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
 ## API
 
@@ -33,22 +36,27 @@ The package is available by importing its default function:
 import whichStream from 'which-stream'
 ```
 
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
+
 ## `async whichStream(`<br/>&nbsp;&nbsp;`config: Config,`<br/>`): void`
 
 The `whichStream` function will determine which streams to use by creating readable and writable streams when source and/or destination are passed as strings, pipe the input to the output, and wait for the output to finish.
 
-`import('stream').Readable` __<a name="readable">`Readable`</a>__
+`import('stream').Readable` __<a name="type-streamreadable">`stream.Readable`</a>__
 
-`import('stream').Writable` __<a name="writable">`Writable`</a>__
+`import('stream').Writable` __<a name="type-streamwritable">`stream.Writable`</a>__
 
-__<a name="config">`Config`</a>__: Configuration object. Includes `source`, `readable`, `destination` and `writable` properties.
+__<a name="type-config">`Config`</a>__: Configuration object. Includes `source`, `readable`, `destination` and `writable` properties.
 
-| Name | Type | Description | Default |
-| ---- | ---- | ----------- | ------- |
-| source | _string_ | The path to a source file from which to read data. | - |
-| readable | [_Readable_](#readable) | An optional input stream, if the `source` is not given. | - |
-| destination | _string_ | The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. Moreover, when used with the `readable` specified to overwrite the file from which data is originally read from, the `source` should also be passed. | - |
-| writable | [_Writable_](#writable) | A stream into which to pipe the input stream, if `destination` is not given. | - |
+|    Name     |    Type    |                                                                                                                                                                                        Description                                                                                                                                                                                        |
+| ----------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| source      | _string_   | The path to a source file from which to read data.                                                                                                                                                                                                                                                                                                                                        |
+| readable    | _Readable_ | An optional input stream, if the `source` is not given.                                                                                                                                                                                                                                                                                                                                   |
+| destination | _string_   | The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. Moreover, when used with the `readable` specified to overwrite the file from which data is originally read from, the `source` should also be passed. |
+| writable    | _Writable_ | A stream into which to pipe the input stream, if `destination` is not given.                                                                                                                                                                                                                                                                                                              |
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
+
 ## Use Cases
 
 Below is the list of possible use cases when `which-stream` package could be used.
@@ -208,7 +216,7 @@ import { Transform } from 'stream'
 ```
 Buy a bag of onions, chop in food processor, toss into
 plastic zip bag, and stow in freezer.
-Modified: Sat Aug 11 2018
+Modified: Fri Apr 19 2019
 ```
 
 In case the `source` is not passed, the file will become empty.
@@ -257,7 +265,7 @@ and prevention of depression.*
 
 ### Readable to Stdout
 
-When a `readable` stream needs to be output to the `stdout`, the destination should be set to `-`.
+When a _Readable_ stream needs to be output to the `stdout`, the destination should be set to `-`.
 
 ```js
 /* yarn example/readable-stdout.js */
@@ -282,20 +290,30 @@ cover and cook in 3 to 5 minutes increments.
   })
 })()
 ```
-
 ```markdown
 > Use microwave to quickly steam your veggies:
 place in a bowl, add a few tablespoons of water,
 cover and cook in 3 to 5 minutes increments.
 ```
 
-## TODO
-
-- [ ] Read a directory as a source.
-- [ ] Allow to pipe to `stderr`.
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/-1.svg?sanitize=true"></a></p>
 
 ## Copyright
 
-(c) [Art Deco][1] 2018
-
-[1]: https://artdeco.bz
+<table>
+  <tr>
+    <th>
+      <a href="https://artd.eco">
+        <img src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png" alt="Art Deco" />
+      </a>
+    </th>
+    <th>© <a href="https://artd.eco">Art Deco</a>   2019</th>
+    <th>
+      <a href="https://www.technation.sucks" title="Tech Nation Visa">
+        <img src="https://raw.githubusercontent.com/artdecoweb/www.technation.sucks/master/anim.gif"
+          alt="Tech Nation Visa" />
+      </a>
+    </th>
+    <th><a href="https://www.technation.sucks">Tech Nation Visa Sucks</a></th>
+  </tr>
+</table>

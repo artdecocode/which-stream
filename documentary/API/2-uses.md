@@ -54,8 +54,7 @@ In the scenario when the `readable` and `writable` are specified, the former wil
 
 ### Readable to Stdout
 
-When a `readable` stream needs to be output to the `stdout`, the destination should be set to `-`.
+When a _Readable_ stream needs to be output to the `stdout`, the destination should be set to `-`.
 
-%EXAMPLE: example/readable-stdout.js, ../src => which-stream%
-
-%FORK-markdown example example/readable-stdout%
+%EXAMPLE: example/readable-stdout, ../src => which-stream%
+%FORK-markdown example/readable-stdout%

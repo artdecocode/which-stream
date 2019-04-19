@@ -75,4 +75,3 @@ const handleWriteStream = async (destination, readable, source) => {
  */
 
 module.exports=whichStream
-//# sourceMappingURL=index.js.map

@@ -1,11 +1,11 @@
-
+<!--
 ## TODO
 
 - [ ] Read a directory as a source.
-- [ ] Allow to pipe to `stderr`.
+- [ ] Allow to pipe to `stderr`. -->
+
+%~ -1%
 
 ## Copyright
 
-(c) [Art Deco][1] 2018
-
-[1]: https://artdeco.bz
+<Footer />
