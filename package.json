@@ -2,35 +2,25 @@
   "name": "which-stream",
   "version": "1.1.0",
   "description": "A small Node.JS library to determine which stream to use.",
-  "main": "build/index.js",
+  "main": "compile/index.js",
   "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
     "test": "yarn t test/spec",
-    "test-build": "ALAMODE_ENV=test-build yarn test",
-    "test-all": "yarn-s test test-build",
-    "test-watch": "yarn test -w",
+    "test-compile": "ALAMODE_ENV=test-compile yarn test",
+    "compile": "depack-dev src/depack -o compile/which-stream.js -a -c -p -s -O 2018 --source_map_include_content",
     "lint": "eslint .",
-    "doc": "NODE_DEBUG=doc doc documentary -o README.md",
+    "doc": "NODE_DEBUG=doc doc -o README.md",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
     "e": "node example",
-    "d1": "typal src -c",
-    "externs": "typal externs.js -e",
-    "d": "yarn-s d1 externs",
-    "example/source-destination.js": "yarn e example/source-destination.js",
-    "example/source-writable.js": "yarn e example/source-writable.js",
-    "example/source-stdout.js": "yarn e example/source-stdout.js",
-    "example/readable-destination.js": "yarn e example/readable-destination.js",
-    "example/readable-destination-overwrite.js": "yarn e example/readable-destination-overwrite.js",
-    "example/readable-writable.js": "yarn e example/readable-writable.js",
-    "example/readable-stdout.js": "yarn e example/readable-stdout.js",
-    "build": "yarn-s b doc",
-    "b": "alamode src -o build -s"
+    "d1": "typal compile/index.js -c",
+    "externs": "typal types/externs.js -e",
+    "d": "yarn-s d1 externs"
   },
   "files": [
-    "build",
+    "compile",
     "src",
-    "externs.js"
+    "types/externs.js"
   ],
   "externs": "externs.js",
   "repository": {
@@ -63,14 +53,14 @@
   },
   "homepage": "https://github.com/artdecocode/which-stream#readme",
   "devDependencies": {
-    "@wrote/ensure-path": "^1.0.8",
-    "alamode": "^1.9.3",
-    "documentary": "^1.24.1",
+    "@wrote/ensure-path": "^1.1.0",
+    "alamode": "^2.3.6",
+    "documentary": "^1.29.0",
     "eslint-config-artdeco": "1.0.1",
     "yarn-s": "1.1.0",
-    "zoroaster": "^3.11.6"
+    "zoroaster": "^4.1.1-alpha"
   },
-  "dependencies": {
+  "srcDependencies": {
     "catchment": "^3.3.0"
   }
 }

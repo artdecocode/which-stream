@@ -1,7 +1,8 @@
 <types namespace="_whichStream">
   <import name="Readable" from="stream" />
   <import name="Writable" from="stream" />
-  <type name="Config" desc="The configuration object.">
+  
+  <type record name="Config" desc="The configuration object.">
     <prop opt type="string" name="source">
       The path to a source file from which to read data.
     </prop>

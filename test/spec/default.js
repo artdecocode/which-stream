@@ -1,4 +1,4 @@
-import { equal } from 'zoroaster/assert'
+import { equal } from '@zoroaster/assert'
 import { PassThrough } from 'stream'
 import Context from '../context'
 import whichStream from '../../src'
