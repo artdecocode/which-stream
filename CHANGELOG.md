@@ -1,5 +1,9 @@
 ## 3 August 2019
 
+### [1.2.1](https://github.com/artdecocode/which-stream/compare/v1.2.0...v1.2.1)
+
+- [package] Fix externs path.
+
 ### [1.2.0](https://github.com/artdecocode/which-stream/compare/v1.1.0...v1.2.0)
 
 - [package] Compile with [_Depack_](https://compiler.page).

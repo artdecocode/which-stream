@@ -22,7 +22,7 @@
     "src",
     "types/externs.js"
   ],
-  "externs": "externs.js",
+  "externs": "types/externs.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/artdecocode/which-stream.git"
