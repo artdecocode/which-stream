@@ -8,7 +8,9 @@
 yarn add which-stream
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/0.svg?sanitize=true">
+</a></p>
 
 ## Table Of Contents
 
@@ -26,7 +28,9 @@ yarn add which-stream
   * [Readable to Stdout](#readable-to-stdout)
 - [Copyright](#copyright)
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/1.svg?sanitize=true">
+</a></p>
 
 ## API
 
@@ -38,26 +42,27 @@ import whichStream from 'which-stream'
 
 The types and [externs](externs.js) for _Google Closure Compiler_ via [**_Depack_**](https://github.com/dpck/depack) are defined in the `_whichStream` namespace.
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/2.svg?sanitize=true">
+</a></p>
 
 ## `async whichStream(`<br/>&nbsp;&nbsp;`config: Config,`<br/>`): void`
 
 The `whichStream` function will determine which streams to use by creating readable and writable streams when source and/or destination are passed as strings, pipe the input to the output, and wait for the output to finish.
 
-`import('stream').Readable` __<a name="type-streamreadable">`stream.Readable`</a>__
+<strong><a name="type-_whichstreamconfig">`_whichStream.Config`</a></strong>: The configuration object.
 
-`import('stream').Writable` __<a name="type-streamwritable">`stream.Writable`</a>__
 
-__<a name="type-_whichstreamconfig">`_whichStream.Config`</a>__: The configuration object.
+|    Name     |                                             Type                                             |                                                                                                                                                                                        Description                                                                                                                                                                                        |
+| ----------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| source      | <em>string</em>                                                                              | The path to a source file from which to read data.                                                                                                                                                                                                                                                                                                                                        |
+| readable    | <em>[!stream.Readable](https://nodejs.org/api/stream.html#stream_class_stream_readable)</em> | An optional input stream, if the `source` is not given.                                                                                                                                                                                                                                                                                                                                   |
+| destination | <em>string</em>                                                                              | The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. Moreover, when used with the `readable` specified to overwrite the file from which data is originally read from, the `source` should also be passed. |
+| writable    | <em>[!stream.Writable](https://nodejs.org/api/stream.html#stream_class_stream_writable)</em> | A stream into which to pipe the input stream, if `destination` is not given.                                                                                                                                                                                                                                                                                                              |
 
-|    Name     |                    Type                    |                                                                                                                                                                                        Description                                                                                                                                                                                        |
-| ----------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| source      | _string_                                   | The path to a source file from which to read data.                                                                                                                                                                                                                                                                                                                                        |
-| readable    | _[!stream.Readable](#type-streamreadable)_ | An optional input stream, if the `source` is not given.                                                                                                                                                                                                                                                                                                                                   |
-| destination | _string_                                   | The path to an output file. If `-` is given, `process.stdout` will be used. If the path of the input stream is the same as of the output one, the result will be first written to the memory, and only then to the destination file. Moreover, when used with the `readable` specified to overwrite the file from which data is originally read from, the `source` should also be passed. |
-| writable    | _[!stream.Writable](#type-streamwritable)_ | A stream into which to pipe the input stream, if `destination` is not given.                                                                                                                                                                                                                                                                                                              |
-
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/3.svg?sanitize=true">
+</a></p>
 
 ## Use Cases
 
@@ -218,7 +223,7 @@ import { Transform } from 'stream'
 ```
 Buy a bag of onions, chop in food processor, toss into
 plastic zip bag, and stow in freezer.
-Modified: Fri Apr 19 2019
+Modified: Sat Aug 03 2019
 ```
 
 In case the `source` is not passed, the file will become empty.
@@ -298,7 +303,9 @@ place in a bowl, add a few tablespoons of water,
 cover and cook in 3 to 5 minutes increments.
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/-1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/-1.svg?sanitize=true">
+</a></p>
 
 ## Copyright
 
@@ -306,14 +313,15 @@ cover and cook in 3 to 5 minutes increments.
   <tr>
     <th>
       <a href="https://artd.eco">
-        <img src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png" alt="Art Deco" />
+        <img width="100" src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png"
+          alt="Art Deco">
       </a>
     </th>
     <th>© <a href="https://artd.eco">Art Deco</a>   2019</th>
     <th>
       <a href="https://www.technation.sucks" title="Tech Nation Visa">
-        <img src="https://raw.githubusercontent.com/artdecoweb/www.technation.sucks/master/anim.gif"
-          alt="Tech Nation Visa" />
+        <img width="100" src="https://raw.githubusercontent.com/idiocc/cookies/master/wiki/arch4.jpg"
+          alt="Tech Nation Visa">
       </a>
     </th>
     <th><a href="https://www.technation.sucks">Tech Nation Visa Sucks</a></th>

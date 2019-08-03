@@ -1,6 +1,6 @@
 <types namespace="_whichStream">
-  <import name="Readable" from="stream" />
-  <import name="Writable" from="stream" />
+  <import name="Readable" from="stream" link="https://nodejs.org/api/stream.html#stream_class_stream_readable" />
+  <import name="Writable" from="stream" link="https://nodejs.org/api/stream.html#stream_class_stream_writable" />
   
   <type record name="Config" desc="The configuration object.">
     <prop opt type="string" name="source">
